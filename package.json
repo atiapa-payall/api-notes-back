@@ -1,0 +1,22 @@
+{
+  "name": "part3",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Tiapa",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "standard": "17.1.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  }
+}
