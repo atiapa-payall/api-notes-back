@@ -2,10 +2,13 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 
 dotenv.config()
-const connectionDB = process.env.CONNECTION_FRAG_L + process.env.USER_DB + ':' + process.env.PASSWORD_DB + process.env.CONNECTION_FRAG_R + process.env.DATABASE
+const { MONGO_DB_URI, MONGO_DB_URI_TEST, NODE_ENV } = process.env
+const connectionDB = NODE_ENV === 'test'
+  ? MONGO_DB_URI_TEST
+  : MONGO_DB_URI
 
 // conexion a mongodb
-if (process.env.USER_DB && process.env.PASSWORD_DB) {
+if (process.env.MONGO_DB_URI) {
   mongoose.connect(connectionDB)
     .then(() => {
       console.log('DataBase connected')

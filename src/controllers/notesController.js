@@ -19,6 +19,8 @@ export const deleteOneById = (req, res, next) => {
   const { id } = req.params
   const filter = { _id: id }
 
+  console.log(id)
+
   deleteOne(filter).then(result => {
     if (result) res.status(204).end()
     else res.status(304).end()
