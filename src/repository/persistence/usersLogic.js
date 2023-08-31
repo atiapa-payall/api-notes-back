@@ -16,3 +16,9 @@ export const createUser = async (body) => {
   const savedUser = await user.save()
   return savedUser
 }
+
+export const queryAllUsers = async () => await User.find({}).populate('notes', {
+  content: 1,
+  date: 1,
+  _id: 0
+})

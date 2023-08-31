@@ -7,13 +7,11 @@ export const api = supertest(app)
 export const initialNotes = [
   {
     content: 'me pone el tulo en 4 despues que me lo mama',
-    important: true,
-    date: new Date()
+    important: true
   },
   {
     content: 'tokicha sin mi tu no chicha',
-    important: true,
-    data: new Date()
+    important: true
   }
 ]
 

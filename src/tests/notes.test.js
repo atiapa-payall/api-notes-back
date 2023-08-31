@@ -4,7 +4,8 @@ import Note from '../models/Note'
 import {
   initialNotes,
   api,
-  getAllContentFromNotes
+  getAllContentFromNotes,
+  getUsers
 } from './helpers'
 
 beforeEach(async () => {
@@ -22,7 +23,7 @@ test('notes are returned as json', async () => {
     .expect('content-Type', /application\/json/)
 })
 
-test('thera are some notes', async () => {
+test('there are some notes', async () => {
   const response = await api.get('/notes/api/v1')
   expect(response.body).toHaveLength(initialNotes.length)
 })
@@ -33,10 +34,12 @@ test('the first note is about tokicha', async () => {
 })
 
 test('a valid note can be added', async () => {
+  const userId = await getUsers()
+
   const newNote = {
     content: 'Ella quiere bicho bellaca',
     important: true,
-    data: new Date()
+    userId: userId[0].id.toString()
   }
 
   await api

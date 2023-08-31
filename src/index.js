@@ -18,8 +18,8 @@ app.disable('x-powered-by')
 
 // API Routes
 app.use('/', indexRouter)
-app.use(process.env.API_URI, notesRouter)
-app.use(process.env.API_URI, usersRouter)
+app.use(process.env.API_URI + '/notes', notesRouter)
+app.use(process.env.API_URI + '/users', usersRouter)
 
 // error middleware's
 app.use(notFound)

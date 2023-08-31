@@ -2,9 +2,12 @@ import { Schema, model } from 'mongoose'
 
 const noteSchema = new Schema({
   content: String,
-  date: Date,
+  date: {
+    type: Date,
+    default: new Date().toISOString()
+  },
   important: Boolean,
-  user: {
+  userId: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   }

@@ -3,10 +3,12 @@ import { createOne, deleteOneById, getAll, getOneById, updateOneById } from '../
 
 const notesRouter = Router()
 
-notesRouter.get('/', getAll)
-notesRouter.get('/:id', getOneById)
-notesRouter.post('/', createOne)
-notesRouter.put('/:id', updateOneById)
-notesRouter.delete('/:id', deleteOneById)
+notesRouter.route('/')
+  .get(getAll)
+  .post(createOne)
+notesRouter.route('/:id')
+  .get(getOneById)
+  .put(updateOneById)
+  .delete(deleteOneById)
 
 export default notesRouter

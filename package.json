@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "dev": "NODE_ENV=development nodemon src/index.js",
     "start": "NODE_ENV=production node src/index.js",
-    "test": "NODE_ENV=test jest --verbose --silent --detectOpenHandles src/tests/users.test.js",
+    "test": "NODE_ENV=test jest --verbose --detectOpenHandles src/tests/users.test.js",
     "test:watch": "yarn run test -- --watch"
   },
   "author": "Tiapa",
